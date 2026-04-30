@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fb;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #1e2a3a;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+.logo-area span {
+    font-size: 1.5rem;
+}
+
+.file-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.file-label {
+    background: #3498db;
+    padding: 6px 14px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: white;
+}
+
+.file-label:hover {
+    background: #2980b9;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    background: #34495e;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 40px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: #1abc9c;
+    transform: scale(1.02);
+}
+
+.nav-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.toggle-sidebar,
+.toggle-dual {
+    background: #1abc9c;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.toggle-dual.active {
+    background: #e67e22;
+}
+
+.book-info {
+    background: #1e2f3f;
+    padding: 4px 12px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 280px;
+    background: #fef9e8;
+    border-right: 1px solid #e2dccd;
+    transition: width 0.25s ease;
+    overflow-y: auto;
+    z-index: 5;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.02);
+}
+
+.sidebar.collapsed {
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    border-right: none;
+}
+
+.sidebar-content {
+    padding: 1.2rem 1rem;
+    width: 280px;
+}
+
+.sidebar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #3b2e24;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid #e2c9a7;
+    padding-bottom: 8px;
+}
+
+.toc-list {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.toc-item {
+    margin-bottom: 6px;
+}
+
+.toc-link {
+    display: block;
+    padding: 6px 8px;
+    color: #4a3b2c;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.toc-link:hover {
+    background: #f1e5d2;
+    color: #b45309;
+    transform: translateX(3px);
+}
+
+.viewer-container {
+    flex: 1;
+    position: relative;
+    background: #f2efe7;
+}
+
+#viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #fffaf2;
+}
+
+@media (max-width: 650px) {
+    .book-info {
+        display: none;
+    }
+    .header {
+        padding: 0.6rem 1rem;
+    }
+    .sidebar {
+        width: 240px;
+    }
+    .sidebar-content {
+        width: 240px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c0b9a8;
+    border-radius: 8px;
+}
+
+.toggle-display {
+    background: #1abc9c;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+.toggle-display:hover {
+    background: #16a085;
+}
